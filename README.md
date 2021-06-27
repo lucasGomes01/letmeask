@@ -4,10 +4,14 @@ https://nlw-react.web.app/
 
 Projeto desenvolvido acompanhando as aulas da Rocketseat na semana nextLevel, desenvolvido com React Native e banco Firebase.
 
+Adicionei extra: 
+  botão da área de administração que só aparece para o author da sala.
+  
 Foi utilizado:
-autenticação com google;
-realtime database;
-//completar <------------------------------------
+  autenticação com google;
+  realtime database;
+
+  //completar <------------------------------------
 
 Código das regras do firebase:
 
