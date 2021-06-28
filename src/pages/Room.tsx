@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import logoImg from '../assets/images/logo.svg';
 
@@ -22,7 +22,15 @@ export function Room() {
   const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id;
 
-  const { title, questions } = useRoom(roomId)
+  const { title, questions, authorId } = useRoom(roomId)
+
+  console.log(authorId)
+
+  function redirectForAdmin () {
+    return (
+      `/admin/rooms/${roomId}`
+    );
+  }
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -64,9 +72,17 @@ export function Room() {
   return (
     <div id="page-room">
       <header>
-        <div className="content">
+      <div className="content">
           <img src={logoImg} alt="Letmeask" />
-          <RoomCode code={roomId} />
+          <div>
+            <RoomCode code={roomId} />
+            { !user ? ( 
+              ""
+            ) : ( 
+            <Link to={redirectForAdmin}>Administração da sala</Link>
+            )}
+
+          </div>
         </div>
       </header>
 
@@ -107,7 +123,7 @@ export function Room() {
                 isHighlighted={question.isHighlighted}
               >
                 { !question.isAnswered && (
-                  <button
+                <button
                   className={`like-button ${question.likeId ? 'liked' : ''}`} 
                   type="button"
                   aria-label="Marcar como gostei"      

@@ -4,11 +4,23 @@
     border-bottom: 1px solid #e2e2e2;
     
     .content{
-    max-width: 1120px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #835Afd;
+        border: 1px solid #835Afd;
+        border-radius: 8px;
+        font-weight: 500;
+        padding: 7px;
+        background: #FFF;
+      }
 
       > img {
       max-height: 45px;
